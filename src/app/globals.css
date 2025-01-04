@@ -19,3 +19,9 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer components {
+  .inputs {
+    @apply bg-zinc-800 p-2 rounded-md outline-none
+  }
+}
