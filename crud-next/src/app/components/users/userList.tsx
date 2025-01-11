@@ -6,6 +6,7 @@ export interface UserListProps {
     onClick?: (user: User) => void
 }
 
+//Função que faz a listagem de usuários na tela
 export default function UserList(props: UserListProps) {
     return (
         <div className="flex flex-col gap-4">

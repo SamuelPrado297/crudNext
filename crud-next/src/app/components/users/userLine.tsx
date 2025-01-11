@@ -6,6 +6,7 @@ export interface UserLineProps {
     onClick?: (user: User) => void
 }
 
+//Função que mostra o de usuário criado na tela
 export default function UserLine(props: UserLineProps) {
     return (
         <div className="flex items-center gap-5 bg-zinc-900 p-4 rounded-md cursor-pointer"
