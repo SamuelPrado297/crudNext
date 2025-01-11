@@ -42,7 +42,7 @@ export default function UserForm(props: UserFormProps) {
 
         //Verifica se os dados do formulário foram corretamente preenchidos
         const onSubmit = (data: CreateUserFormSchema) => {
-                if (isValid) {
+                if (isValid || null) {
                         props.onChange(data);
                         props.save();
                 } else {
@@ -78,7 +78,7 @@ export default function UserForm(props: UserFormProps) {
                         {errors.phone && <p className="erro">{errors.phone.message}</p>} 
 
                 <label>E-mail: </label>
-                <input type="email" className="inputs" value={props.user.email}
+                <input type="string" className="inputs" value={props.user.email}
                         {...register("email")}
                         onChange={e => props.onChange({ ...props.user, email: e.target.value})}
                         maxLength={120}
@@ -94,10 +94,10 @@ export default function UserForm(props: UserFormProps) {
 
                 <div className="flex justify-between">
                     <div className="flex gap-5">
-                        <button className="bg-green-500 px-4 py-2 rounded-md" onClick={props.save}>Salvar</button>
-                        <button className="bg-zinc-500 px-4 py-2 rounded-md" onClick={props.cancel}>Cancelar</button>
+                        <button type="submit" className="bg-green-500 px-4 py-2 rounded-md">Salvar</button> {/*O formulário já salva os dados, não necessitando adicionar um evento */}
+                        <button type="button" className="bg-zinc-500 px-4 py-2 rounded-md" onClick={props.cancel}>Cancelar</button> {/*type="button" necessário para diferenciar os botões na função onSubmit, evitando que eles tenham a mesma função de salvar dados*/}
                     </div>
-                    <button className="bg-red-500 px-4 py-2 rounded-md" onClick={props.delete}>Excluir</button>
+                    <button type="button" className="bg-red-500 px-4 py-2 rounded-md" onClick={props.delete}>Excluir</button>
                 </div>
             </div>
         </form>
